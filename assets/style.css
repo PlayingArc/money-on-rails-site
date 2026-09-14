@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --surface-2: #fbf9f4;
+  --line: rgba(28,25,20,0.11);
+  --line-soft: rgba(28,25,20,0.06);
+  --ink: #1a1714;
+  --ink-2: #56514a;
+  --ink-3: #8b8478;
+  --accent: #4a3aa7;
+  --accent-2: #6c5ce0;
+  --accent-soft: rgba(74,58,167,0.10);
+  --shadow: 0 1px 2px rgba(28,25,20,.05), 0 10px 28px -18px rgba(28,25,20,.35);
+  --font: 'Instrument Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #121110;
+    --surface: #1a1918;
+    --surface-2: #201f1d;
+    --line: rgba(245,242,235,0.10);
+    --line-soft: rgba(245,242,235,0.05);
+    --ink: #f5f2eb;
+    --ink-2: #ada79c;
+    --ink-3: #7c7669;
+    --accent: #9085e9;
+    --accent-2: #b0a7f5;
+    --accent-soft: rgba(144,133,233,0.16);
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 16px 40px -24px rgba(0,0,0,.8);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.55;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-2); }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header.site {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+header.site .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+nav.site a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.92rem;
+  margin-left: 20px;
+}
+
+nav.site a:hover { color: var(--accent); }
+
+main {
+  padding: 48px 0 64px;
+}
+
+main.legal {
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 2.2em 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+.meta {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  margin-bottom: 2em;
+}
+
+.lede {
+  font-size: 1.1rem;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 28px 32px;
+  margin-top: 32px;
+}
+
+.pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-size: 0.94rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+th { color: var(--ink-2); font-weight: 600; }
+
+code {
+  font-family: var(--mono);
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+
+footer.site {
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+footer.site .wrap {
+  padding: 28px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.disclaimer {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  max-width: 62ch;
+}
+
+.disclaimer a { color: var(--ink-2); }
+
+.badge img { display: block; height: 30px; width: auto; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.55rem; }
+  .card { padding: 22px 20px; }
+}

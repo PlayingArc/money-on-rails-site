@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Money on Rails</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!--
+  Content adapted from the Basecamp open-source policies
+  (https://github.com/basecamp/policies), (c) 37signals, licensed CC BY 4.0
+  (https://creativecommons.org/licenses/by/4.0/). Structure and some phrasing
+  follow that source; content is rewritten for Money on Rails' own data flows.
+
+  DRAFT: not reviewed by a lawyer. Published to satisfy YNAB's Restricted
+  Mode review requirement of a live, published privacy-policy URL; a full
+  legal review remains an open external dependency before ungated public
+  launch.
+-->
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="/">Money on Rails</a>
+    <nav class="site">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: [date of first publication]</p>
+
+    <p>The privacy of your data &mdash; and it is your data, not ours &mdash; matters to us. This
+    policy explains what we collect, why, how it&rsquo;s handled, and your rights. We never sell
+    your data.</p>
+
+    <p>Money on Rails is operated by [Legal Name / Entity &mdash; TBD before legal review], a
+    solo-developer product based in Nuevo Le&oacute;n, Mexico. It is a third-party analytics tool
+    that connects to your YNAB budget via YNAB&rsquo;s own API. <strong>Money on Rails is not
+    affiliated, associated, or in any way officially connected with YNAB or any of its
+    subsidiaries or affiliates.</strong></p>
+
+    <h2>What we collect and why</h2>
+    <table>
+      <tr><th>We collect</th><th>Why</th></tr>
+      <tr>
+        <td>Your YNAB account identifier (an opaque ID YNAB gives us &mdash; YNAB never shares
+        your email or name with us)</td>
+        <td>To recognize you as a returning User and enforce the invite gate</td>
+      </tr>
+      <tr>
+        <td>A YNAB OAuth access/refresh token pair</td>
+        <td>To read your Budget data on your behalf, for as long as your Connection stays
+        active</td>
+      </tr>
+      <tr>
+        <td>Your Budget&rsquo;s Categories, Category Groups, and monthly budgeted/activity/balance
+        figures</td>
+        <td>To compute your Adherence Rating, Category Adherence, and Budget Quality Rating</td>
+      </tr>
+      <tr>
+        <td>Your Budget&rsquo;s <strong>inflow transactions only</strong> (date, amount, payee,
+        category)</td>
+        <td>To group payees into Income Sources and attribute income in the app&rsquo;s cash-flow
+        view. We do not sync outflow transactions, and no view in the product drills below a
+        category&rsquo;s monthly total.</td>
+      </tr>
+      <tr>
+        <td>Category names (never amounts, payees, or account/user identity)</td>
+        <td>Sent to our AI classification provider once per Budget, to suggest a Needs/Wants/
+        Savings bucket and a true-expense grouping for each category. You can always correct a
+        suggestion.</td>
+      </tr>
+      <tr>
+        <td>If you contact us to request an invite before you have an account</td>
+        <td>To evaluate and respond to your request</td>
+      </tr>
+    </table>
+    <p>We collect the minimum YNAB permissions necessary to do this and nothing beyond it.</p>
+
+    <h2>When we access or disclose your information</h2>
+    <p>We use a small number of subprocessors to run the service, and we don&rsquo;t sell or rent
+    your data to anyone:</p>
+    <ul>
+      <li><strong>YNAB, Inc.</strong> &mdash; the source of your Budget data. We only read what
+      your OAuth grant authorizes; we never write to your Budget.</li>
+      <li><strong><a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a>,
+      Claude Haiku model family</strong> &mdash; our AI classification provider. We send
+      <strong>only category names</strong> (e.g. &ldquo;Groceries&rdquo;) &mdash; never amounts,
+      payee names, account identifiers, or anything identifying you &mdash; and only when a
+      category name hasn&rsquo;t already been classified before across all Users. Anthropic&rsquo;s
+      Commercial Terms state Customer Content submitted via the API is not used to train their
+      models without our express permission, and Anthropic does not retain this data by default
+      beyond what&rsquo;s technically necessary to serve the request. Anthropic publishes a Data
+      Processing Addendum covering this relationship.</li>
+      <li><strong>Google Cloud Platform</strong> &mdash; hosts our application, database, and
+      encryption keys. Your data is stored on infrastructure located in the United States.</li>
+      <li>A <strong>payment processor</strong>, if and when Money on Rails introduces paid plans
+      (it does not have one today).</li>
+    </ul>
+    <p>No human on our side looks at your budget data except as strictly necessary to fix a bug
+    you&rsquo;ve reported or investigate abuse, and never your transaction-level detail without
+    cause. We do not respond to government requests for your data unless legally compelled to.</p>
+
+    <h2>Your rights with respect to your information</h2>
+    <p>You can, at any time:</p>
+    <ul>
+      <li><strong>Access</strong> the data we hold about you, by asking us (see Contact, below)
+      &mdash; or simply by using the app, since everything we store about your Budget is what the
+      app itself displays back to you.</li>
+      <li><strong>Correct</strong> a category or archetype classification directly in the app.</li>
+      <li><strong>Delete your account and data</strong>, from your account settings or by emailing
+      us. See &ldquo;What happens when you delete your account,&rdquo; below.</li>
+      <li><strong>Object</strong> to a specific use of your data, or ask us to restrict processing,
+      by contacting us.</li>
+      <li><strong>Export</strong> your data &mdash; since it&rsquo;s a synced copy of your own YNAB
+      Budget, the authoritative copy always remains available to you directly in YNAB.</li>
+    </ul>
+
+    <h2>How we secure your data</h2>
+    <ul>
+      <li>All data in transit is encrypted (TLS).</li>
+      <li>Your YNAB OAuth tokens are encrypted at rest using application-level envelope
+      encryption: each token is encrypted with its own key, which is itself protected by a master
+      key held in a managed cloud key-management service. Your token is never stored, logged, or
+      transmitted in plain text.</li>
+      <li>We keep a strict allowlist of what&rsquo;s permitted to reach our logs &mdash;
+      identifiers, status values, timestamps, and counts. Transaction amounts, payee names, and
+      category names are never logged, because they can reveal sensitive things about you (a payee
+      on an inflow transaction can reveal your employer, benefits, or alimony) &mdash; this is
+      enforced by our logging code, not just a policy we intend to follow.</li>
+      <li>Database backups are also encrypted.</li>
+    </ul>
+
+    <h2>What happens when you delete your account</h2>
+    <ul>
+      <li>Deleting your account queues a job that permanently removes your data &mdash; your
+      Connection, Budget, Categories, Transactions, and every rating we&rsquo;ve computed &mdash;
+      within <strong>30 days</strong>.</li>
+      <li>Because we keep rolling backups for disaster recovery, a deleted account&rsquo;s data may
+      persist in an encrypted backup for up to an additional <strong>7 days</strong> after that
+      &mdash; <strong>up to 37 days total</strong> in the worst case &mdash; before every backup
+      copy has aged out.</li>
+      <li>We delete <strong>our own copy</strong> of your YNAB access token as part of this. We
+      have no way to revoke the grant at YNAB&rsquo;s end on your behalf &mdash; <strong>YNAB does
+      not offer us that capability.</strong> If you also want to fully revoke Money on Rails&rsquo;
+      access to your YNAB account, do so directly from your YNAB account settings under Authorized
+      Applications.</li>
+      <li>One narrow exception: two internal logs we use to track how well our AI classification
+      is performing keep a record of a category <em>name</em> and the classification outcome,
+      indefinitely. These records are never linked to your account, Budget, or identity in our
+      database &mdash; they never were &mdash; so they survive account deletion the same way an
+      anonymous statistic would. We don&rsquo;t use them for anything beyond measuring and
+      improving classification quality.</li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <table>
+      <tr><th>Data</th><th>Retention</th></tr>
+      <tr><td>Your account</td><td>For as long as your account exists, then purged per &ldquo;What
+      happens when you delete your account,&rdquo; above</td></tr>
+      <tr><td>Your session (what keeps you logged in)</td><td>30 days of inactivity, independent
+      of your account</td></tr>
+      <tr><td>Your YNAB access token</td><td>For as long as your Connection is active; deleted
+      immediately if YNAB tells us the grant was revoked or expired (it&rsquo;s kept only while
+      it&rsquo;s still valid, even if you haven&rsquo;t reconnected after your YNAB data plan or
+      trial changed status)</td></tr>
+      <tr><td>Your synced Budget, Categories, and transactions</td><td>For as long as your account
+      exists, deleted with it</td></tr>
+      <tr><td>Ratings and other computed data</td><td>For as long as your account exists, deleted
+      with it</td></tr>
+      <tr><td>Classification quality logs (see above)</td><td>Indefinite, but never linked to
+      you</td></tr>
+      <tr><td>If you contact us before having an account</td><td>Deleted 30 days after
+      you&rsquo;re admitted, or after 12 months if we don&rsquo;t hear back</td></tr>
+    </table>
+
+    <h2>Who can use Money on Rails</h2>
+    <p>Money on Rails is currently invitation-only and restricted to users located in the United
+    States. It is not directed at, and we do not knowingly collect data from, anyone under 13.</p>
+
+    <h2>California residents</h2>
+    <p>If you&rsquo;re a California resident, this policy is our conspicuously posted privacy
+    notice under the California Online Privacy Protection Act. Because Money on Rails is a small,
+    invite-only product, we don&rsquo;t believe the California Consumer Privacy Act&rsquo;s
+    thresholds apply to us today &mdash; but the rights described above are available to every
+    user regardless.</p>
+
+    <h2>Location of site and data</h2>
+    <p>Money on Rails is operated from Mexico, and the servers that store and process your data
+    are located in the United States. If in the future we serve users located outside the United
+    States, we&rsquo;ll update this section &mdash; and this policy &mdash; to describe how that
+    data is protected in transit.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we start collecting a new kind of data or using your data for a new purpose, we&rsquo;ll
+    update this policy and, where YNAB&rsquo;s rules require it, ask for your renewed consent
+    before doing so. We review this policy at least once every 6&ndash;12 months against
+    YNAB&rsquo;s own API Terms of Service and current law, whether or not anything else has
+    changed.</p>
+
+    <h2>Contact us</h2>
+    <p>Questions, data requests, or a request to delete your account:
+    <a href="mailto:privacy@moneyonrails.app">privacy@moneyonrails.app</a></p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a class="badge" href="https://www.ynab.com" target="_blank" rel="noopener">
+      <img src="https://api.ynab.com/papi/works_with_ynab.svg" alt="Works with YNAB">
+    </a>
+    <p class="disclaimer">
+      We are not affiliated, associated, or in any way officially connected with YNAB or any of
+      its subsidiaries or affiliates. The official YNAB website can be found at
+      <a href="https://www.ynab.com" target="_blank" rel="noopener">https://www.ynab.com</a>.
+    </p>
+    <p class="disclaimer">
+      <a href="/">Home</a> &middot; <a href="terms.html">Terms of Service</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
