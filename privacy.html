@@ -33,15 +33,15 @@
 <main class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: [date of first publication]</p>
+    <p class="meta">Last updated: September 18, 2026</p>
 
     <p>The privacy of your data &mdash; and it is your data, not ours &mdash; matters to us. This
     policy explains what we collect, why, how it&rsquo;s handled, and your rights. We never sell
     your data.</p>
 
-    <p>Money on Rails is operated by [Legal Name / Entity &mdash; TBD before legal review], a
-    solo-developer product based in Nuevo Le&oacute;n, Mexico. It is a third-party analytics tool
-    that connects to your YNAB budget via YNAB&rsquo;s own API. <strong>Money on Rails is not
+    <p>Money on Rails is operated by Gerardo Sanchez Lopez, an individual developer based in Nuevo
+    Le&oacute;n, Mexico, and not a company. It is a third-party analytics tool that connects to
+    your YNAB plan via YNAB&rsquo;s own API. <strong>Money on Rails is not
     affiliated, associated, or in any way officially connected with YNAB or any of its
     subsidiaries or affiliates.</strong></p>
 
@@ -55,16 +55,16 @@
       </tr>
       <tr>
         <td>A YNAB OAuth access/refresh token pair</td>
-        <td>To read your Budget data on your behalf, for as long as your Connection stays
+        <td>To read your plan data on your behalf, for as long as your Connection stays
         active</td>
       </tr>
       <tr>
-        <td>Your Budget&rsquo;s Categories, Category Groups, and monthly budgeted/activity/balance
+        <td>Your plan&rsquo;s Categories, Category Groups, and monthly assigned/activity/balance
         figures</td>
-        <td>To compute your Adherence Rating, Category Adherence, and Budget Quality Rating</td>
+        <td>To compute your Adherence Rating, Category Adherence, and Plan Quality Rating</td>
       </tr>
       <tr>
-        <td>Your Budget&rsquo;s <strong>inflow transactions only</strong> (date, amount, payee,
+        <td>Your plan&rsquo;s <strong>inflow transactions only</strong> (date, amount, payee,
         category)</td>
         <td>To group payees into Income Sources and attribute income in the app&rsquo;s cash-flow
         view. We do not sync outflow transactions, and no view in the product drills below a
@@ -72,9 +72,11 @@
       </tr>
       <tr>
         <td>Category names (never amounts, payees, or account/user identity)</td>
-        <td>Sent to our AI classification provider once per Budget, to suggest a Needs/Wants/
-        Savings bucket and a true-expense grouping for each category. You can always correct a
-        suggestion.</td>
+        <td>Sent to our AI classification provider when you first connect your plan, and again only
+        for categories you add later, to suggest a Needs/Wants/Savings bucket and a true-expense
+        grouping for each category. You can always correct a suggestion. We keep a history of
+        these suggestions and your corrections as part of your account, and it is deleted with
+        your account.</td>
       </tr>
       <tr>
         <td>If you contact us to request an invite before you have an account</td>
@@ -87,23 +89,27 @@
     <p>We use a small number of subprocessors to run the service, and we don&rsquo;t sell or rent
     your data to anyone:</p>
     <ul>
-      <li><strong>YNAB, Inc.</strong> &mdash; the source of your Budget data. We only read what
-      your OAuth grant authorizes; we never write to your Budget.</li>
+      <li><strong>YNAB, Inc.</strong> &mdash; the source of your plan data. We only read what
+      your OAuth grant authorizes; we never write to your plan.</li>
       <li><strong><a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a>,
       Claude Haiku model family</strong> &mdash; our AI classification provider. We send
       <strong>only category names</strong> (e.g. &ldquo;Groceries&rdquo;) &mdash; never amounts,
-      payee names, account identifiers, or anything identifying you &mdash; and only when a
-      category name hasn&rsquo;t already been classified before across all Users. Anthropic&rsquo;s
+      payee names, account identifiers, or your account identity. Category names are text you
+      wrote, so please be aware that a name you typed is sent as you typed it. We never use one
+      User&rsquo;s category names to classify another User&rsquo;s categories. Anthropic&rsquo;s
       Commercial Terms state Customer Content submitted via the API is not used to train their
       models without our express permission, and Anthropic does not retain this data by default
       beyond what&rsquo;s technically necessary to serve the request. Anthropic publishes a Data
       Processing Addendum covering this relationship.</li>
-      <li><strong>Google Cloud Platform</strong> &mdash; hosts our application, database, and
-      encryption keys. Your data is stored on infrastructure located in the United States.</li>
-      <li>A <strong>payment processor</strong>, if and when Money on Rails introduces paid plans
-      (it does not have one today).</li>
+      <li><strong>Google Cloud Platform</strong> &mdash; runs our application and holds our
+      encryption keys and our encrypted database backups, in the United States.</li>
+      <li><strong><a href="https://neon.com" target="_blank" rel="noopener">Neon</a></strong>
+      &mdash; hosts our database, which is where your synced data lives, on Amazon Web Services
+      infrastructure in the United States.</li>
+      <li>A <strong>payment processor</strong>, if and when Money on Rails introduces a paid
+      version (it does not have one today).</li>
     </ul>
-    <p>No human on our side looks at your budget data except as strictly necessary to fix a bug
+    <p>No human on our side looks at your plan data except as strictly necessary to fix a bug
     you&rsquo;ve reported or investigate abuse, and never your transaction-level detail without
     cause. We do not respond to government requests for your data unless legally compelled to.</p>
 
@@ -111,7 +117,7 @@
     <p>You can, at any time:</p>
     <ul>
       <li><strong>Access</strong> the data we hold about you, by asking us (see Contact, below)
-      &mdash; or simply by using the app, since everything we store about your Budget is what the
+      &mdash; or simply by using the app, since everything we store about your plan is what the
       app itself displays back to you.</li>
       <li><strong>Correct</strong> a category or archetype classification directly in the app.</li>
       <li><strong>Delete your account and data</strong>, from your account settings or by emailing
@@ -119,7 +125,7 @@
       <li><strong>Object</strong> to a specific use of your data, or ask us to restrict processing,
       by contacting us.</li>
       <li><strong>Export</strong> your data &mdash; since it&rsquo;s a synced copy of your own YNAB
-      Budget, the authoritative copy always remains available to you directly in YNAB.</li>
+      plan, the authoritative copy always remains available to you directly in YNAB.</li>
     </ul>
 
     <h2>How we secure your data</h2>
@@ -140,8 +146,9 @@
     <h2>What happens when you delete your account</h2>
     <ul>
       <li>Deleting your account queues a job that permanently removes your data &mdash; your
-      Connection, Budget, Categories, Transactions, and every rating we&rsquo;ve computed &mdash;
-      within <strong>30 days</strong>.</li>
+      Connection, plan, Categories (including their names), Transactions, every rating
+      we&rsquo;ve computed, and every classification suggestion and correction &mdash; within
+      <strong>30 days</strong>. Nothing is kept, in any form, once that job has run.</li>
       <li>Because we keep rolling backups for disaster recovery, a deleted account&rsquo;s data may
       persist in an encrypted backup for up to an additional <strong>7 days</strong> after that
       &mdash; <strong>up to 37 days total</strong> in the worst case &mdash; before every backup
@@ -151,12 +158,6 @@
       not offer us that capability.</strong> If you also want to fully revoke Money on Rails&rsquo;
       access to your YNAB account, do so directly from your YNAB account settings under Authorized
       Applications.</li>
-      <li>One narrow exception: two internal logs we use to track how well our AI classification
-      is performing keep a record of a category <em>name</em> and the classification outcome,
-      indefinitely. These records are never linked to your account, Budget, or identity in our
-      database &mdash; they never were &mdash; so they survive account deletion the same way an
-      anonymous statistic would. We don&rsquo;t use them for anything beyond measuring and
-      improving classification quality.</li>
     </ul>
 
     <h2>Data retention</h2>
@@ -168,14 +169,14 @@
       of your account</td></tr>
       <tr><td>Your YNAB access token</td><td>For as long as your Connection is active; deleted
       immediately if YNAB tells us the grant was revoked or expired (it&rsquo;s kept only while
-      it&rsquo;s still valid, even if you haven&rsquo;t reconnected after your YNAB data plan or
-      trial changed status)</td></tr>
-      <tr><td>Your synced Budget, Categories, and transactions</td><td>For as long as your account
+      it&rsquo;s still valid, even while syncing is paused because YNAB reported a data
+      limit or an expired trial)</td></tr>
+      <tr><td>Your synced plan, Categories, and transactions</td><td>For as long as your account
       exists, deleted with it</td></tr>
       <tr><td>Ratings and other computed data</td><td>For as long as your account exists, deleted
       with it</td></tr>
-      <tr><td>Classification quality logs (see above)</td><td>Indefinite, but never linked to
-      you</td></tr>
+      <tr><td>Category names, classification suggestions, and your corrections</td><td>For as
+      long as your account exists, deleted with it</td></tr>
       <tr><td>If you contact us before having an account</td><td>Deleted 30 days after
       you&rsquo;re admitted, or after 12 months if we don&rsquo;t hear back</td></tr>
     </table>
