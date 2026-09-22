@@ -3,21 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Money on Rails</title>
+<title>Privacy Policy | Money on Rails</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <!--
-  Content adapted from the Basecamp open-source policies
+  Structure first adapted from the Basecamp open-source policies
   (https://github.com/basecamp/policies), (c) 37signals, licensed CC BY 4.0
-  (https://creativecommons.org/licenses/by/4.0/). Structure and some phrasing
-  follow that source; content is rewritten for Money on Rails' own data flows.
+  (https://creativecommons.org/licenses/by/4.0/). The text is written for
+  Money on Rails' own data flows.
 
-  DRAFT: not reviewed by a lawyer. Published to satisfy YNAB's Restricted
-  Mode review requirement of a live, published privacy-policy URL; a full
-  legal review remains an open external dependency before ungated public
-  launch.
+  DRAFT: not reviewed by a lawyer. Every statement about data here is meant
+  to match the app's code, migrations and ADRs; the sources are listed in
+  the rewrite notes that accompany the change that introduced this text.
 -->
 
 <header class="site">
@@ -33,180 +32,280 @@
 <main class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: September 18, 2026</p>
+    <p class="meta">Last updated: September 22, 2026</p>
 
-    <p>The privacy of your data &mdash; and it is your data, not ours &mdash; matters to us. This
-    policy explains what we collect, why, how it&rsquo;s handled, and your rights. We never sell
-    your data.</p>
+    <p>This policy says what Money on Rails collects, why, who else handles it, how long we
+    keep it, and how to get it deleted. We never sell your data, and we don't show ads.</p>
 
-    <p>Money on Rails is operated by Gerardo Sanchez Lopez, an individual developer based in Nuevo
-    Le&oacute;n, Mexico, and not a company. It is a third-party analytics tool that connects to
-    your YNAB plan via YNAB&rsquo;s own API. <strong>Money on Rails is not
-    affiliated, associated, or in any way officially connected with YNAB or any of its
-    subsidiaries or affiliates.</strong></p>
+    <p>Money on Rails is run by Gerardo Sanchez Lopez, an individual developer based in Nuevo
+    Le&oacute;n, Mexico. It is not a company. In this policy, "we" and "us" mean him. Money on
+    Rails is an analytics tool that reads your YNAB plan through YNAB's own API, with your
+    permission. <strong>Money on Rails is not affiliated, associated, or in any way officially
+    connected with YNAB or any of its subsidiaries or affiliates.</strong></p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li>We read your YNAB plan with read-only access. We never change anything in YNAB.</li>
+      <li>We keep your Categories, their monthly numbers and your income transactions. We don't
+      keep your spending transactions.</li>
+      <li>To sort your Categories, we send their names, and nothing else, to OpenAI. OpenAI keeps
+      them for up to 30 days and does not train on them.</li>
+      <li>You can delete your account at any time. It is gone within a day, and nothing about
+      you is kept after that.</li>
+    </ul>
 
     <h2>What we collect and why</h2>
     <table>
-      <tr><th>We collect</th><th>Why</th></tr>
+      <tr><th>What</th><th>Why</th></tr>
       <tr>
-        <td>Your YNAB account identifier (an opaque ID YNAB gives us &mdash; YNAB never shares
-        your email or name with us)</td>
-        <td>To recognize you as a returning User and enforce the invite gate</td>
+        <td>Your YNAB user ID. This is a random code YNAB gives us. YNAB does not give us your
+        name or your email address.</td>
+        <td>To recognize you when you sign in again.</td>
       </tr>
       <tr>
-        <td>A YNAB OAuth access/refresh token pair</td>
-        <td>To read your plan data on your behalf, for as long as your Connection stays
-        active</td>
+        <td>Your YNAB access token and refresh token.</td>
+        <td>To read your plan on your behalf while you stay connected.</td>
       </tr>
       <tr>
-        <td>Your plan&rsquo;s Categories, Category Groups, and monthly assigned/activity/balance
-        figures</td>
-        <td>To compute your Adherence Rating, Category Adherence, and Plan Quality Rating</td>
+        <td>The name of the plan you connected, its currency format and the range of months it
+        covers.</td>
+        <td>To show your plan and format its amounts.</td>
       </tr>
       <tr>
-        <td>Your plan&rsquo;s <strong>inflow transactions only</strong> (date, amount, payee,
-        category)</td>
-        <td>To group payees into Income Sources and attribute income in the app&rsquo;s cash-flow
-        view. We do not sync outflow transactions, and no view in the product drills below a
-        category&rsquo;s monthly total.</td>
+        <td>Your Category Groups and Categories: their names, their order, whether they are
+        hidden or deleted in YNAB, and whether a Category has a target, with the target's type
+        and amount.</td>
+        <td>To build every view in the app, and to check whether your true expenses have a
+        target.</td>
       </tr>
       <tr>
-        <td>Category names (never amounts, payees, or account/user identity)</td>
-        <td>Sent to our AI classification provider when you first connect your plan, and again only
-        for categories you add later, to suggest a Needs/Wants/Savings bucket and a true-expense
-        grouping for each category. You can always correct a suggestion. We keep a history of
-        these suggestions and your corrections as part of your account, and it is deleted with
-        your account.</td>
+        <td>Each Category's monthly numbers: what you assigned, what you spent or received
+        (activity), and what was available.</td>
+        <td>To compute your Adherence Rating, Category Adherence and Plan Quality Rating.</td>
       </tr>
       <tr>
-        <td>If you contact us to request an invite before you have an account</td>
-        <td>To evaluate and respond to your request</td>
+        <td><strong>Income transactions only</strong>: date, amount, payee name, Category, whether
+        it is a transfer from another of your accounts (we keep that account's YNAB ID), and whether it was deleted in YNAB. We don't keep
+        spending transactions or memos.</td>
+        <td>To group your payees into Income Sources for the cash-flow view.</td>
+      </tr>
+      <tr>
+        <td>Your Income Sources, which payees belong to each, and any changes you make to
+        them.</td>
+        <td>To show where your income comes from, the way you want it grouped.</td>
+      </tr>
+      <tr>
+        <td>How each Category is sorted into Needs, Wants or Savings, which Categories fund each
+        of eight common true expenses, your corrections, your emergency fund choice, and a
+        history of these suggestions and corrections, including the Category name each one was
+        about and the AI model that made it.</td>
+        <td>To compute your Plan Quality Rating and to show you what was suggested and what you
+        changed.</td>
+      </tr>
+      <tr>
+        <td>The ratings and summaries we compute from all of the above.</td>
+        <td>So pages load quickly without recomputing everything.</td>
+      </tr>
+      <tr>
+        <td>A sign-in session.</td>
+        <td>To keep you signed in.</td>
+      </tr>
+      <tr>
+        <td>If you were invited: a short note of who the invite was for, which may be your email
+        address.</td>
+        <td>So we know who each invite went to and don't issue more than YNAB allows.</td>
+      </tr>
+      <tr>
+        <td>If you ask for an invite: your email address, your note if you wrote one, and a
+        scrambled form of your network address. See "Asking for an invite," below.</td>
+        <td>To answer your request and to slow down spam.</td>
+      </tr>
+      <tr>
+        <td>Emails you send us.</td>
+        <td>To answer you.</td>
       </tr>
     </table>
-    <p>We collect the minimum YNAB permissions necessary to do this and nothing beyond it.</p>
+    <p>We ask YNAB for read-only access, the narrowest access YNAB offers. When the app reads
+    your plan, YNAB sends more than we keep, for example your spending transactions and your
+    accounts. The app uses that data only to pick out what is listed above and stores nothing
+    else.</p>
 
-    <h2>When we access or disclose your information</h2>
-    <p>We use a small number of subprocessors to run the service, and we don&rsquo;t sell or rent
-    your data to anyone:</p>
+    <h2>How we use AI to sort your Categories</h2>
+    <p>When you first connect your plan, and later when YNAB shows us Categories that haven't
+    been sorted yet, we ask an AI model to suggest two things: whether each Category is a Need,
+    a Want or Savings, and which of your Categories, if any, pays for each of eight common true
+    expenses (such as car insurance or gifts). You can change any suggestion.</p>
     <ul>
-      <li><strong>YNAB, Inc.</strong> &mdash; the source of your plan data. We only read what
-      your OAuth grant authorizes; we never write to your plan.</li>
-      <li><strong><a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a>,
-      Claude Haiku model family</strong> &mdash; our AI classification provider. We send
-      <strong>only category names</strong> (e.g. &ldquo;Groceries&rdquo;) &mdash; never amounts,
-      payee names, account identifiers, or your account identity. Category names are text you
-      wrote, so please be aware that a name you typed is sent as you typed it. We never use one
-      User&rsquo;s category names to classify another User&rsquo;s categories. Anthropic&rsquo;s
-      Commercial Terms state Customer Content submitted via the API is not used to train their
-      models without our express permission, and Anthropic does not retain this data by default
-      beyond what&rsquo;s technically necessary to serve the request. Anthropic publishes a Data
-      Processing Addendum covering this relationship.</li>
-      <li><strong>Google Cloud Platform</strong> &mdash; runs our application and holds our
-      encryption keys and our encrypted database backups, in the United States.</li>
-      <li><strong><a href="https://neon.com" target="_blank" rel="noopener">Neon</a></strong>
-      &mdash; hosts our database, which is where your synced data lives, on Amazon Web Services
-      infrastructure in the United States.</li>
-      <li>A <strong>payment processor</strong>, if and when Money on Rails introduces a paid
-      version (it does not have one today).</li>
-    </ul>
-    <p>No human on our side looks at your plan data except as strictly necessary to fix a bug
-    you&rsquo;ve reported or investigate abuse, and never your transaction-level detail without
-    cause. We do not respond to government requests for your data unless legally compelled to.</p>
-
-    <h2>Your rights with respect to your information</h2>
-    <p>You can, at any time:</p>
-    <ul>
-      <li><strong>Access</strong> the data we hold about you, by asking us (see Contact, below)
-      &mdash; or simply by using the app, since everything we store about your plan is what the
-      app itself displays back to you.</li>
-      <li><strong>Correct</strong> a category or archetype classification directly in the app.</li>
-      <li><strong>Delete your account and data</strong>, from your account settings or by emailing
-      us. See &ldquo;What happens when you delete your account,&rdquo; below.</li>
-      <li><strong>Object</strong> to a specific use of your data, or ask us to restrict processing,
-      by contacting us.</li>
-      <li><strong>Export</strong> your data &mdash; since it&rsquo;s a synced copy of your own YNAB
-      plan, the authoritative copy always remains available to you directly in YNAB.</li>
+      <li>The model is OpenAI's GPT-5.6 Luna, reached through OpenAI's API.</li>
+      <li><strong>We send only Category names.</strong> For Needs, Wants and Savings we send
+      the names of the unsorted Categories, eight at a time. For true expenses we send your full
+      list of Category names, once for each of the eight expenses.</li>
+      <li>We don't send amounts, payees, transactions, account names, any ID, or anything that
+      says who you are or which YNAB account the names came from.</li>
+      <li>A Category name is text you typed, and we send it exactly as you typed it. If a name
+      contains something personal, such as a person's name, OpenAI receives that too.</li>
+      <li>OpenAI does not use data sent through its API to train its models unless we opt in,
+      and we have not.</li>
+      <li>OpenAI keeps what we send, and what it sends back, for up to 30 days to watch for
+      abuse of its service, and longer only if the law requires it. Deleting your Money on Rails
+      account does not shorten this.</li>
+      <li>We never use one person's Category names to sort another person's Categories.</li>
     </ul>
 
-    <h2>How we secure your data</h2>
+    <h2>Who else handles your data</h2>
+    <p>These are all the outside services that handle personal data for Money on Rails. We
+    don't sell or rent your data to anyone.</p>
     <ul>
-      <li>All data in transit is encrypted (TLS).</li>
-      <li>Your YNAB OAuth tokens are encrypted at rest using application-level envelope
-      encryption: each token is encrypted with its own key, which is itself protected by a master
-      key held in a managed cloud key-management service. Your token is never stored, logged, or
-      transmitted in plain text.</li>
-      <li>We keep a strict allowlist of what&rsquo;s permitted to reach our logs &mdash;
-      identifiers, status values, timestamps, and counts. Transaction amounts, payee names, and
-      category names are never logged, because they can reveal sensitive things about you (a payee
-      on an inflow transaction can reveal your employer, benefits, or alimony) &mdash; this is
-      enforced by our logging code, not just a policy we intend to follow.</li>
-      <li>Database backups are also encrypted.</li>
+      <li><strong>YNAB</strong> is where your plan data comes from. We read only what your
+      read-only permission allows.</li>
+      <li><strong>OpenAI</strong> receives Category names, as described above.</li>
+      <li><strong>Google Cloud</strong> runs the app, holds the master encryption key that
+      protects your YNAB tokens, stores the app's secrets, and keeps the app's logs. It runs in
+      the United States.</li>
+      <li><strong>Neon</strong> hosts our database, where everything in the table above is
+      stored. Neon runs it on Amazon Web Services in the United States.</li>
+      <li><strong>Cloudflare</strong> forwards email sent to privacy@moneyonrails.app to the
+      operator's inbox.</li>
+      <li><strong>GitHub</strong> hosts this public website (the home page, the Terms and this
+      policy). The app itself does not run on GitHub.</li>
+    </ul>
+    <p>The operator is the only person with access to the database. He looks at your data only to fix a problem
+    you reported, to look into abuse, or when the law requires it. We hand data to a government
+    or court only when the law compels us to.</p>
+
+    <h2>Asking for an invite</h2>
+    <p>Money on Rails is invite-only for now. Anyone can ask for an invite with the form at
+    <a href="https://dash.moneyonrails.app/request-invite">dash.moneyonrails.app/request-invite</a>.
+    Here is what that form collects and what happens to it.</p>
+    <ul>
+      <li><strong>What we keep:</strong> your email address and, if you write one, a short note.
+      Nothing else. No name, and no record of how you found us.</li>
+      <li><strong>Who sees it:</strong> only the operator, who reads each request by hand. It is
+      stored in the same database as everything else and is not shared with anyone.</li>
+      <li><strong>How long we keep it:</strong> if you're invited and join, we delete the request
+      30 days after you join. If no invite follows, we delete it after 12 months.</li>
+      <li><strong>If you're invited from your request,</strong> your email address becomes the
+      note on your invite. Once you join, that note is part of your account and is deleted with
+      it.</li>
+      <li><strong>Deleting it sooner:</strong> you have no account to sign in to, so there is no
+      button for this. Email privacy@moneyonrails.app from the address you used, and we will
+      delete it.</li>
+      <li><strong>Spam protection:</strong> to limit how many requests one network can send, we
+      keep a scrambled form of your network (IP) address with the time of each request. It is
+      scrambled with a secret key, so it can't be turned back into your address without that
+      key. We never store your actual IP address. Entries older than an hour are deleted
+      automatically the next time anyone uses the form.</li>
     </ul>
 
-    <h2>What happens when you delete your account</h2>
+    <h2>How we protect your data</h2>
     <ul>
-      <li>Deleting your account queues a job that permanently removes your data &mdash; your
-      Connection, plan, Categories (including their names), Transactions, every rating
-      we&rsquo;ve computed, and every classification suggestion and correction &mdash; within
-      <strong>30 days</strong>. Nothing is kept, in any form, once that job has run.</li>
-      <li>Because we keep rolling backups for disaster recovery, a deleted account&rsquo;s data may
-      persist in an encrypted backup for up to an additional <strong>7 days</strong> after that
-      &mdash; <strong>up to 37 days total</strong> in the worst case &mdash; before every backup
-      copy has aged out.</li>
-      <li>We delete <strong>our own copy</strong> of your YNAB access token as part of this. We
-      have no way to revoke the grant at YNAB&rsquo;s end on your behalf &mdash; <strong>YNAB does
-      not offer us that capability.</strong> If you also want to fully revoke Money on Rails&rsquo;
-      access to your YNAB account, do so directly from your YNAB account settings under Authorized
-      Applications.</li>
+      <li>Connections to the app, to YNAB and to OpenAI are encrypted with HTTPS.</li>
+      <li>Your YNAB tokens are encrypted before they are stored. Each token gets its own key,
+      and that key is locked by a master key held in Google Cloud Key Management Service, which
+      never leaves it. Your tokens are never stored or logged in readable form.</li>
+      <li>Your sign-in session and any invite link are stored only as a keyed hash, so a copy of
+      the database can't be used to sign in as you or to use your invite.</li>
+      <li>Our application logs use a fixed list of what may be recorded: IDs, status codes,
+      times and counts. Amounts, payee names, Category names, email addresses and IP addresses
+      are not on the list, and the logging code drops anything that isn't. Google Cloud also
+      keeps its own standard record of requests to the app, such as the time, the page asked
+      for and the IP address it came from.</li>
+      <li>When YNAB tells us your access has been revoked or has expired, we delete our copy of
+      your tokens right away. Your history stays until you delete your account.</li>
     </ul>
 
-    <h2>Data retention</h2>
+    <h2>Deleting your account</h2>
+    <ul>
+      <li>You can delete your account from Settings, or by emailing us.</li>
+      <li>When you ask, we sign you out everywhere. A deletion job runs once a day and removes
+      your account the next time it runs, so it is usually gone within a day. We will always
+      finish within 30 days.</li>
+      <li>It deletes everything: your YNAB connection and tokens, your plan's synced data,
+      Categories and their names, income transactions, Income Sources, ratings, every
+      suggestion and correction, and your sessions. Nothing about you is kept by us after
+      that.</li>
+      <li>A request can't be cancelled. Until the job runs, you can't sign in again. After it
+      runs, signing in with YNAB would start a new account, which needs a new invite.</li>
+      <li>Database backups roll over within 7 days, so deleted data can remain in a backup for
+      up to 7 more days after the deletion job runs.</li>
+      <li>OpenAI's copy of any Category names we sent is deleted on OpenAI's own schedule, up to
+      30 days after we sent them.</li>
+      <li><strong>We can't remove Money on Rails' access at YNAB for you.</strong> We delete our
+      copy of your tokens, but YNAB does not let apps revoke their own access. To remove it
+      completely, remove Money on Rails in your YNAB account settings.</li>
+    </ul>
+
+    <h2>How long we keep data</h2>
     <table>
-      <tr><th>Data</th><th>Retention</th></tr>
-      <tr><td>Your account</td><td>For as long as your account exists, then purged per &ldquo;What
-      happens when you delete your account,&rdquo; above</td></tr>
-      <tr><td>Your session (what keeps you logged in)</td><td>30 days of inactivity, independent
-      of your account</td></tr>
-      <tr><td>Your YNAB access token</td><td>For as long as your Connection is active; deleted
-      immediately if YNAB tells us the grant was revoked or expired (it&rsquo;s kept only while
-      it&rsquo;s still valid, even while syncing is paused because YNAB reported a data
-      limit or an expired trial)</td></tr>
-      <tr><td>Your synced plan, Categories, and transactions</td><td>For as long as your account
-      exists, deleted with it</td></tr>
-      <tr><td>Ratings and other computed data</td><td>For as long as your account exists, deleted
-      with it</td></tr>
-      <tr><td>Category names, classification suggestions, and your corrections</td><td>For as
-      long as your account exists, deleted with it</td></tr>
-      <tr><td>If you contact us before having an account</td><td>Deleted 30 days after
-      you&rsquo;re admitted, or after 12 months if we don&rsquo;t hear back</td></tr>
+      <tr><th>Data</th><th>How long</th></tr>
+      <tr><td>Your account, synced plan data, income transactions, Income Sources, ratings,
+      Category sorting and its history</td><td>While you have an account. Deleted when you
+      delete your account, as described above.</td></tr>
+      <tr><td>Your YNAB tokens</td><td>While your connection works. Deleted as soon as YNAB
+      reports the access revoked or expired, and always when you delete your account.</td></tr>
+      <tr><td>Your sign-in session</td><td>Ends 30 days after you last used the app, when you
+      sign out, or when you delete your account.</td></tr>
+      <tr><td>Invite note (if you were invited)</td><td>Once you join, while you have an
+      account. An unused invite has no expiry date; email us and we will delete it.</td></tr>
+      <tr><td>Invite request (email address and note)</td><td>30 days after you join, or 12
+      months if no invite follows. Sooner if you email us.</td></tr>
+      <tr><td>Scrambled network address from the request form</td><td>One hour, then deleted the
+      next time anyone uses the form.</td></tr>
+      <tr><td>Category names held by OpenAI</td><td>Up to 30 days from when we sent them, then
+      deleted by OpenAI.</td></tr>
+      <tr><td>Database backups</td><td>Up to 7 days.</td></tr>
+      <tr><td>App logs and Google Cloud's request records</td><td>Deleted automatically by Google
+      Cloud when its log retention period ends.</td></tr>
+      <tr><td>Emails you send us</td><td>In the operator's mailbox until he deletes them. Ask and
+      he will delete yours.</td></tr>
     </table>
+
+    <h2>Your choices and rights</h2>
+    <ul>
+      <li><strong>See your data:</strong> almost everything we keep about your plan is shown to
+      you in the app. For anything else, email us.</li>
+      <li><strong>Correct it:</strong> change any Category's Needs, Wants or Savings choice, any
+      true-expense match and your Income Sources in the app. Your plan data itself always comes
+      from YNAB, so fix it there.</li>
+      <li><strong>Delete it:</strong> delete your account in Settings, or email us.</li>
+      <li><strong>Object or ask us to limit what we do:</strong> email us and we will reply.</li>
+      <li><strong>Get a copy:</strong> the original of your plan data is always in YNAB. For a
+      copy of what we hold, email us.</li>
+    </ul>
+
+    <h2>Cookies and tracking</h2>
+    <p>The app sets two cookies, and only to sign you in: one holds your session, and one lasts
+    about 10 minutes while you sign in with YNAB. If you pick a light or dark theme, your browser
+    remembers it on your own device. We use no analytics, no advertising and no tracking
+    cookies. This website loads its fonts from Google Fonts and the "Works with YNAB" badge from
+    YNAB, so those services see your visit.</p>
 
     <h2>Who can use Money on Rails</h2>
-    <p>Money on Rails is currently invitation-only and restricted to users located in the United
-    States. It is not directed at, and we do not knowingly collect data from, anyone under 13.</p>
+    <p>Money on Rails is invite-only and offered only to people in the United States. It is not
+    meant for anyone under 13, and we don't knowingly collect data from them.</p>
+    <p>If you approve Money on Rails at YNAB without an invite, we turn you away before we
+    receive any token from YNAB, and we store nothing about you. You did still give Money on
+    Rails permission at YNAB, so remove it in your YNAB account settings.</p>
 
     <h2>California residents</h2>
-    <p>If you&rsquo;re a California resident, this policy is our conspicuously posted privacy
-    notice under the California Online Privacy Protection Act. Because Money on Rails is a small,
-    invite-only product, we don&rsquo;t believe the California Consumer Privacy Act&rsquo;s
-    thresholds apply to us today &mdash; but the rights described above are available to every
-    user regardless.</p>
+    <p>If you live in California, this page is our privacy notice under the California Online
+    Privacy Protection Act. Money on Rails is small and invite-only, and we don't believe the
+    California Consumer Privacy Act applies to it today. Every right on this page is open to
+    every user anyway.</p>
 
-    <h2>Location of site and data</h2>
-    <p>Money on Rails is operated from Mexico, and the servers that store and process your data
-    are located in the United States. If in the future we serve users located outside the United
-    States, we&rsquo;ll update this section &mdash; and this policy &mdash; to describe how that
-    data is protected in transit.</p>
+    <h2>Where your data is</h2>
+    <p>Money on Rails is run from Mexico. The servers that store and process your data are in
+    the United States. If we start serving people outside the United States, we will update this
+    policy first.</p>
 
     <h2>Changes to this policy</h2>
-    <p>If we start collecting a new kind of data or using your data for a new purpose, we&rsquo;ll
-    update this policy and, where YNAB&rsquo;s rules require it, ask for your renewed consent
-    before doing so. We review this policy at least once every 6&ndash;12 months against
-    YNAB&rsquo;s own API Terms of Service and current law, whether or not anything else has
-    changed.</p>
+    <p>If we start collecting a new kind of data, or using your data for something new, we will
+    update this policy first and, where YNAB's rules require it, ask for your consent again. We
+    review this policy at least every 6 to 12 months against YNAB's API Terms of Service and
+    current law. The date at the top shows the last change.</p>
 
     <h2>Contact us</h2>
-    <p>Questions, data requests, or a request to delete your account:
+    <p>Questions, data requests, or a request to delete your account or your invite request:
     <a href="mailto:privacy@moneyonrails.app">privacy@moneyonrails.app</a></p>
   </div>
 </main>
