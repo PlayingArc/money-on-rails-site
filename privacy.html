@@ -32,7 +32,7 @@
 <main class="legal">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: September 22, 2026</p>
+    <p class="meta">Last updated: September 25, 2026</p>
 
     <p>This policy says what Money on Rails collects, why, who else handles it, how long we
     keep it, and how to get it deleted. We never sell your data, and we don't show ads.</p>
@@ -50,8 +50,9 @@
       keep your spending transactions.</li>
       <li>To sort your Categories, we send their names, and nothing else, to OpenAI. OpenAI keeps
       them for up to 30 days and does not train on them.</li>
-      <li>You can delete your account at any time. It is gone within a day, and nothing about
-      you is kept after that.</li>
+      <li>You can delete your account at any time. It is usually gone within a day. A few
+      things are not part of your account and follow their own schedule, as explained in
+      "Deleting your account," below.</li>
     </ul>
 
     <h2>What we collect and why</h2>
@@ -183,7 +184,8 @@
       <li>Only the operator reads requests, one by one. We store them in the same database as
       everything else and share them with no one.</li>
       <li>If you're invited and join, we delete your request 30 days after you join. If no
-      invite follows, we delete it after 12 months.</li>
+      invite follows, we delete it after 12 months. For now the operator deletes requests by
+      hand on this schedule, until an automatic job takes over.</li>
       <li>If we invite you from your request, your email address becomes the note on your
       invite. Once you join, that note belongs to your account, and we delete it with your
       account.</li>
@@ -222,12 +224,17 @@
       finish within 30 days.</li>
       <li>It deletes everything: your YNAB connection and tokens, your plan's synced data,
       Categories and their names, income transactions, Income Sources, ratings, every
-      suggestion and correction, and your sessions. After that we keep nothing about
-      you.</li>
+      suggestion and correction, and your sessions.</li>
+      <li>A few things are not part of your account, so deleting it does not remove them. An
+      invite request you sent before joining follows its own schedule, described in "Asking for
+      an invite." Our app logs identify you only by a random account ID, never by name, email
+      address or IP address, and Google Cloud deletes them, along with its own request records,
+      when its log retention period ends.</li>
       <li>A request can't be cancelled. Until the job runs, you can't sign in again. After it
       runs, signing in with YNAB would start a new account, which needs a new invite.</li>
-      <li>Database backups roll over within 7 days, so deleted data can remain in a backup for
-      up to 7 more days after the deletion job runs.</li>
+      <li>Our database host, Neon, keeps a short restore history of the database, never more
+      than 7 days. Deleted data can remain in our database host's restore history for up to 7
+      more days after the deletion job runs.</li>
       <li>OpenAI deletes its copy of any Category names we sent on its own schedule, up to 30
       days after we sent them.</li>
       <li><strong>We can't remove Money on Rails' access at YNAB for you.</strong> We delete our
@@ -248,12 +255,14 @@
       <tr><td>Invite note (if you were invited)</td><td>Once you join, while you have an
       account. An unused invite has no expiry date; email us and we will delete it.</td></tr>
       <tr><td>Invite request (email address and note)</td><td>30 days after you join, or 12
-      months if no invite follows. Sooner if you email us.</td></tr>
+      months if no invite follows. For now the operator deletes them by hand on this schedule,
+      until an automatic job takes over. Sooner if you email privacy@moneyonrails.app.</td></tr>
       <tr><td>Scrambled network address from the request form</td><td>One hour, then deleted the
       next time anyone uses the form.</td></tr>
       <tr><td>Category names held by OpenAI</td><td>Up to 30 days from when we sent them, then
       deleted by OpenAI.</td></tr>
-      <tr><td>Database backups</td><td>Up to 7 days.</td></tr>
+      <tr><td>Our database host's restore history (Neon)</td><td>Up to 7 days. Deleted data can
+      remain there for up to 7 more days.</td></tr>
       <tr><td>App logs and Google Cloud's request records</td><td>Deleted automatically by Google
       Cloud when its log retention period ends.</td></tr>
       <tr><td>Emails you send us</td><td>In the operator's mailbox until he deletes them. Ask and
@@ -275,9 +284,16 @@
     </ul>
 
     <h2>Cookies and tracking</h2>
-    <p>The app sets two cookies, and only to sign you in: one holds your session, and one lasts
-    about 10 minutes while you sign in with YNAB. If you pick a light or dark theme, your browser
-    remembers it on your own device. We use no analytics, no advertising and no tracking
+    <p>The app sets three cookies, all for signing in:</p>
+    <ul>
+      <li><code>mor_session</code> holds your sign-in session. It ends 30 days after you last
+      used the app.</li>
+      <li><code>mor_signin_nonce</code> lasts about 10 minutes while you sign in with YNAB.</li>
+      <li><code>mor_known_browser</code> lasts up to 400 days. It holds only a signed record of
+      when this browser last signed in. It names no account and holds no personal data. It stays
+      after you sign out, so you can sign in again when you come back.</li>
+    </ul>
+    <p>If you pick a light or dark theme, your browser remembers it on your own device. We use no analytics, no advertising and no tracking
     cookies. This website loads its fonts from Google Fonts and the "Works with YNAB" badge from
     YNAB, so those services see your visit.</p>
 
