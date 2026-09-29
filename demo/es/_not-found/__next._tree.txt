@@ -1,4 +1,4 @@
 :HL["/demo/es/_next/static/chunks/0e-ummx71_v15.css","style"]
 :HL["/demo/es/_next/static/chunks/30vgy4f4yudee.css","style"]
 :HL["https://api.ynab.com/papi/works_with_ynab.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"1bJmJEe_gW75IeKG1-qcS"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"XJd2SYTSB4iqVETKidc_x"}
