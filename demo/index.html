@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Money on Rails demo</title>
+<script>
+  // Spanish-speaking browsers get the Spanish demo; everyone else, English.
+  var langs = navigator.languages || [navigator.language || ""];
+  var es = String(langs[0] || "").toLowerCase().indexOf("es") === 0;
+  location.replace(es ? "/demo/es/overview" : "/demo/en/overview");
+</script>
 <meta http-equiv="refresh" content="0; url=/demo/en/overview">
 <link rel="canonical" href="https://moneyonrails.app/demo/en/overview">
 <link rel="stylesheet" href="../assets/style.css">
@@ -12,7 +18,7 @@
 
 <main>
   <div class="wrap">
-    <p>Opening the demo&hellip; <a href="/demo/en/overview">Go to the demo</a>.</p>
+    <p>Opening the demo&hellip; <a href="/demo/en/overview">English</a> &middot; <a href="/demo/es/overview" lang="es">Español</a></p>
   </div>
 </main>
 
